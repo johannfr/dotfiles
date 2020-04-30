@@ -34,3 +34,6 @@
 [submodule ".vim/pack/start/vim-fswitch"]
 	path = .vim/pack/start/vim-fswitch
 	url = https://github.com/derekwyatt/vim-fswitch.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git

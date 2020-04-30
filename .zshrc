@@ -135,6 +135,7 @@ alias pip3="python3.8 -m pip"
 alias buddylist='purple-remote "PurpleBlistSetVisible?show=1"'
 alias scp="scp -o 'ProxyCommand openssl s_client -alpn identifyssh -ign_eof -connect jof.guru:443'"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias v="callvim -b':tabnew'"
 
 source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
