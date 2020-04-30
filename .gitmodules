@@ -1,0 +1,36 @@
+[submodule ".vim/pack/jof/opt/solarized8"]
+	path = .vim/pack/jof/opt/solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule ".vim/pack/start/YouCompleteMe"]
+	path = .vim/pack/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git
+[submodule ".vim/pack/jof/start/ack.vim"]
+	path = .vim/pack/jof/start/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/pack/jof/start/black"]
+	path = .vim/pack/jof/start/black
+	url = https://github.com/psf/black.git
+[submodule ".vim/pack/start/ctrlp.vim"]
+	path = .vim/pack/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule ".vim/pack/start/editorconfig-vim"]
+	path = .vim/pack/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
+[submodule ".vim/pack/jof/start/fugitive"]
+	path = .vim/pack/jof/start/fugitive
+	url = https://tpope.io/vim/fugitive.git
+[submodule ".vim/pack/jof/start/ultisnips"]
+	path = .vim/pack/jof/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/pack/jof/start/vim-airline"]
+	path = .vim/pack/jof/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule ".vim/pack/jof/opt/vim-airline-themes"]
+	path = .vim/pack/jof/opt/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule ".vim/pack/jof/start/vim-conflicted"]
+	path = .vim/pack/jof/start/vim-conflicted
+	url = https://github.com/christoomey/vim-conflicted.git
+[submodule ".vim/pack/start/vim-fswitch"]
+	path = .vim/pack/start/vim-fswitch
+	url = https://github.com/derekwyatt/vim-fswitch.git
