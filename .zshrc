@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -140,6 +140,6 @@ alias v="callvim -b':tabnew'"
 source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export ARM_GCC_DIR="/opt/gcc-arm-none-eabi-7-2017-q4-major"
-export PATH="$PATH:/home/jof/.local/bin:/home/jof/vinna/uc-training/uc_cli:/opt/SimplicityStudio_v5:/opt/SimplicityStudio_v5/developer/adapter_packs/commander"
+export PATH="$PATH:/home/jof/bin"
 
 compinit

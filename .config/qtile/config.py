@@ -119,6 +119,7 @@ keys = [
         [ctrl, alt], "d", lazy.spawn("gnome-terminal -- /home/jof/bin/ssh-jof.guru.sh"),
     ),
     Key([ctrl, alt], "f", lazy.spawn("/home/jof/bin/purposeTerm.sh")),
+    Key([ctrl, alt], "l", lazy.spawn("/home/jof/bin/lock.sh")),
     Key([ctrl, alt], "m", lazy.spawn("firefox -p default-release")),
     Key([], "XF86AudioPlay", lazy.spawn("sp play")),
     Key([], "XF86AudioPrev", lazy.spawn("sp prev")),
@@ -194,6 +195,16 @@ groups.append(
         persist=False,
         init=False,
         matches=[Match(title=["Android Emulator - Nexus_5X_API_28:5554"])],
+    )
+)
+
+groups.append(
+    Group(
+        "Zoom",
+        persist=False,
+        init=False,
+        layout="floating",
+        matches=[Match(wm_class=["zoom"])],
     )
 )
 

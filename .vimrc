@@ -63,7 +63,7 @@ highlight ColorColumn ctermbg=233
 set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 " set t_Co=256
-set guifont=Menlo\ for\ Powerline\ 9
+set guifont=MesloLGS\ NF\ 9
 
 " For ctrlp
 " let g:ctrlp_max_height = 30

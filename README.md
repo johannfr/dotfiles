@@ -10,6 +10,12 @@ git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
+## Poetry completions (after installing poetry)
+```bash
+mkdir $ZSH/plugins/poetry
+poetry completions zsh > $ZSH/plugins/poetry/_poetry
+```
+
 ## Clang completer for YouCompleteMe
 ```bash
 cd ~/.vim/pack/jof/start/YouCompleteMe
