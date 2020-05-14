@@ -43,6 +43,12 @@ def autostart():
     subprocess.call([home])
 
 
+@hook.subscribe.client_focus
+def client_thing(c):
+    if c.window.get_wm_window_role() == "smiley_dialog":
+        c.cmd_set_size_floating(1280, 960)
+
+
 def focus_to_next_screen(qtile):
     other_scr_index = (qtile.screens.index(qtile.currentScreen) + 1) % len(
         qtile.screens
@@ -180,31 +186,14 @@ for i in groups:
     # mod1 + shift + letter of group = switch to & move focused window to group
     keys.append(Key([mod, "shift"], i.name, lazy.window.togroup(i.name)))
 
+groups.append(Group("Zoom"))
+
 groups.append(
     Group(
         "gimp",
         persist=False,
         init=False,  # layout='gimp',
         matches=[Match(wm_class=["Gimp"])],
-    )
-)
-
-groups.append(
-    Group(
-        "Emulator",
-        persist=False,
-        init=False,
-        matches=[Match(title=["Android Emulator - Nexus_5X_API_28:5554"])],
-    )
-)
-
-groups.append(
-    Group(
-        "Zoom",
-        persist=False,
-        init=False,
-        layout="floating",
-        matches=[Match(wm_class=["zoom"])],
     )
 )
 
@@ -223,6 +212,8 @@ screens = [
                 # widget.KeyboardKbdd(configured_keyboards=['is', 'us']),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %H:%M"),
+                # widget.PulseVolume(fmt=" {}", emoji=True, volume_app="pavucontrol"),
+                # widget.PulseVolume(volume_app="pavucontrol"),
                 widget.Volume(
                     theme_path="/usr/share/icons/AwOkenWhite/clear/24x24/status/"
                 ),
@@ -230,8 +221,27 @@ screens = [
             24,
         ),
     ),
-    Screen(bottom=bar.Bar([widget.GroupBox(), widget.WindowName(),], 24,)),
-    Screen(bottom=bar.Bar([widget.GroupBox(), widget.WindowName(),], 24,)),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.Notify(fmt=" 🔥 {} "),
+                widget.GroupBox(),
+                widget.WindowName(),
+                widget.Clock(format="%Y-%m-%d %a %H:%M"),
+            ],
+            24,
+        )
+    ),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(),
+                widget.WindowName(),
+                widget.Clock(format="%Y-%m-%d %a %H:%M"),
+            ],
+            24,
+        )
+    ),
 ]
 
 # Drag floating layouts.
@@ -245,7 +255,7 @@ mouse = [
     Drag(
         [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
     ),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([mod], "Button2", lazy.window.kill()),
 ]
 
 dgroups_key_binder = None
@@ -271,7 +281,7 @@ floating_layout = layout.Floating(
         {"wname": "pinentry"},  # GPG key password entry
         {"wmclass": "ssh-askpass"},  # ssh-askpass
         {"wmclass": "gimp"},
-        {"wname": "Android Emulator - Nexus_5X_API_28:5554"},
+        {"wmclass": "zoom"},
     ]
 )
 auto_fullscreen = True
