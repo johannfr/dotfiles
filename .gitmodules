@@ -40,3 +40,6 @@
 [submodule ".vim/pack/jof/start/YouCompleteMe"]
 	path = .vim/pack/jof/start/YouCompleteMe
 	url = https://github.com/ycm-core/YouCompleteMe.git
+[submodule ".vim/pack/jof/start/tagbar"]
+	path = .vim/pack/jof/start/tagbar
+	url = https://github.com/majutsushi/tagbar.git

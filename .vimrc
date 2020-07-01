@@ -15,18 +15,14 @@ set printoptions=paper:A4,duplex:off,collate:n,syntax:y
 set background=dark
 colorscheme solarized8
 
-function! ClangFormat()
-    py3f /usr/share/clang/clang-format-10/clang-format.py
-endfunction
-
 function! ClangFormatFull()
-    let l:formatdiff = 0
-    call ClangFormat()
+    let l:lines = "all"
+    py3f /usr/share/clang/clang-format-10/clang-format.py
 endfunction
 
 function! ClangFormatOnSave()
     let l:formatdiff = 1
-    call ClangFormat()
+    py3f /usr/share/clang/clang-format-10/clang-format.py
 endfunction
 
 command! ClangFormat call ClangFormatFull()
@@ -43,7 +39,10 @@ map <c-h> <c-w>h
 
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
+map <Leader>o <esc>:Tagbar<CR>
 nnoremap <Leader>jd :YcmCompleter GoTo<CR>
+nnoremap <Leader>jr :YcmCompleter GoToReferences<CR>
+nnoremap <Leader>jt :YcmCompleter GetType<CR>
 
 vnoremap <Leader>s :sort<CR>
 
@@ -101,6 +100,7 @@ set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_stop_completion = ['<C-y>', '<Enter>']
+let g:ycm_always_populate_location_list = 1
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
