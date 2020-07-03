@@ -143,3 +143,7 @@ export ARM_GCC_DIR="/opt/gcc-arm-none-eabi-7-2017-q4-major"
 export PATH="$PATH:/home/jof/bin"
 
 compinit
+export PATH="/usr/local/opt/python@3.8/bin:/usr/local/bin:/Users/jofridri/Library/Python/3.8/bin:$PATH"
+
+# Created by `userpath` on 2020-07-03 13:10:08
+export PATH="$PATH:/Users/jofridri/.local/bin"

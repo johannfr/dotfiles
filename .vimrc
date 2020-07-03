@@ -17,12 +17,12 @@ colorscheme solarized8
 
 function! ClangFormatFull()
     let l:lines = "all"
-    py3f /usr/share/clang/clang-format-10/clang-format.py
+    py3f /usr/local/Cellar/clang-format/10.0.0/share/clang/clang-format.py
 endfunction
 
 function! ClangFormatOnSave()
     let l:formatdiff = 1
-    py3f /usr/share/clang/clang-format-10/clang-format.py
+    py3f /usr/local/Cellar/clang-format/10.0.0/share/clang/clang-format.py
 endfunction
 
 command! ClangFormat call ClangFormatFull()
@@ -62,7 +62,7 @@ highlight ColorColumn ctermbg=233
 set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 " set t_Co=256
-set guifont=MesloLGS\ NF\ 9
+set guifont=SourceCodePro+Powerline+AwesomeRegular:h14
 
 " For ctrlp
 " let g:ctrlp_max_height = 30
