@@ -118,12 +118,12 @@ bindkey "${terminfo[kcud1]}" down-line-or-local-history
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PYTHON_ICON='\U1F40D '
-prompt_virtualenv() {              
- local virtualenv_path="$VIRTUAL_ENV"
- if [[ -n "$virtualenv_path" && "$VIRTUAL_ENV_DISABLE_PROMPT" != true ]]; then
- "$1_prompt_segment" "$0" "$2" "cyan" "black" "$(basename "$virtualenv_path")" 'PYTHON_ICON'
- fi
-}
+# prompt_virtualenv() {
+#  local virtualenv_path="$VIRTUAL_ENV"
+#  if [[ -n "$virtualenv_path" && "$VIRTUAL_ENV_DISABLE_PROMPT" != true ]]; then
+#  "$1_prompt_segment" "$0" "$2" "cyan" "black" "$(basename "$virtualenv_path")" 'PYTHON_ICON'
+#  fi
+# }
 
 export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 
