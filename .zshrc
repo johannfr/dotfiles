@@ -69,7 +69,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(pyenv command-not-found poetry vim-interaction)
+plugins=(pyenv command-not-found poetry vim-interaction brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -133,14 +133,15 @@ alias python3="python3.8"
 alias pip="python3.8 -m pip"
 alias pip3="python3.8 -m pip"
 alias buddylist='purple-remote "PurpleBlistSetVisible?show=1"'
-alias scp="scp -o 'ProxyCommand openssl s_client -alpn identifyssh -ign_eof -connect jof.guru:443'"
+alias scphttps="scp -o 'ProxyCommand openssl s_client -alpn identifyssh -ign_eof -connect jof.guru:443'"
+alias sshhttps="ssh -o 'ProxyCommand openssl s_client -alpn identifyssh -ign_eof -connect jof.guru:443'"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias v="callvim -b':tabnew'"
 
 source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export ARM_GCC_DIR="/opt/gcc-arm-none-eabi-7-2017-q4-major"
-export PATH="$PATH:/home/jof/bin"
+export PATH="$PATH:$HOME/bin"
 
 compinit
 export PATH="/usr/local/opt/python@3.8/bin:/usr/local/bin:/Users/jofridri/Library/Python/3.8/bin:$PATH"

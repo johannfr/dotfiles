@@ -17,12 +17,12 @@ colorscheme solarized8
 
 function! ClangFormatFull()
     let l:lines = "all"
-    py3f /usr/local/Cellar/clang-format/10.0.0/share/clang/clang-format.py
+    py3f /usr/local/Cellar/clang-format/10.0.1/share/clang/clang-format.py
 endfunction
 
 function! ClangFormatOnSave()
     let l:formatdiff = 1
-    py3f /usr/local/Cellar/clang-format/10.0.0/share/clang/clang-format.py
+    py3f /usr/local/Cellar/clang-format/10.0.1/share/clang/clang-format.py
 endfunction
 
 command! ClangFormat call ClangFormatFull()
@@ -30,6 +30,16 @@ command! ClangFormat call ClangFormatFull()
 autocmd! bufwritepost .vimrc source %
 autocmd BufWritePre *.py execute ':Black'
 autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.cc call ClangFormatOnSave()
+
+nnoremap <MiddleMouse> <Nop>
+nnoremap <2-MiddleMouse> <Nop>
+nnoremap <3-MiddleMouse> <Nop>
+nnoremap <4-MiddleMouse> <Nop>
+
+inoremap <MiddleMouse> <Nop>
+inoremap <2-MiddleMouse> <Nop>
+inoremap <3-MiddleMouse> <Nop>
+inoremap <4-MiddleMouse> <Nop>
 
 let mapleader = ","
 map <c-j> <c-w>j
