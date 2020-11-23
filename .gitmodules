@@ -28,9 +28,6 @@
 [submodule ".zsh-syntax-highlighting"]
 	path = .zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule ".vim/pack/jof/start/ctrlp.vim"]
-	path = .vim/pack/jof/start/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule ".vim/pack/jof/start/editorconfig-vim"]
 	path = .vim/pack/jof/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
