@@ -43,3 +43,6 @@
 [submodule ".vim/pack/jof/start/fzf.vim"]
 	path = .vim/pack/jof/start/fzf.vim
 	url = git@github.com:junegunn/fzf.vim.git
+[submodule ".vim/pack/jof/start/vim-gitgutter"]
+	path = .vim/pack/jof/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
