@@ -13,7 +13,7 @@ set t_vb=
 set printoptions=paper:A4,duplex:off,collate:n,syntax:y
 
 set rtp+=/usr/local/opt/fzf
-
+set updatetime=100
 
 set background=dark
 colorscheme solarized8
