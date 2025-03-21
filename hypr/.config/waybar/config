@@ -1,0 +1,112 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+
+    "position": "top",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 30,
+
+    "modules-left": [
+        "hyprland/workspaces",
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "hyprland/language",
+        "tray",
+        "battery",
+        "backlight",
+        "wireplumber",
+        "clock#time",
+        "custom/power",
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "custom/power": {
+      "format": "󰐥 ",
+      "on-click": "nwg-bar",
+    },
+
+    "hyprland/language": {
+      "format-en": "us",
+      "format-is": "is",
+    },
+
+    "hyprland/workspaces": {
+      "persistent-workspaces": {
+        "eDP-1": [10, 11],
+        "DP-6": [1, 2],
+        "DP-8": [7],
+      },
+      "format": "{name}: {icon}",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "10": "",
+        "11": "",
+        "active": "",
+        "default": ""
+      },
+    },
+
+    "backlight": {
+      "format": "{icon}  {percent}%",
+      "format-icons": [
+        "󰛩","󱩎","󱩏","󱩐","󱩐","󱩑","󱩒","󱩓","󱩔","󱩕","󱩖","󰛨",
+        ],
+    },
+
+    "wireplumber": {
+      "format": "   {volume}%",
+      "on-click": "pavucontrol",
+    },
+
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        // Connected to AC
+        "format": "   {capacity}%", // Icon: bolt
+        // Not connected to AC
+        "format-discharging": "{icon}   {capacity}%",
+        "format-icons": [
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
+            "", // Icon: battery-half
+            "", // Icon: battery-quarter
+            ""  // Icon: battery-empty
+        ],
+        "tooltip": true
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "{:%A, %d.%m.%Y}",
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 2,
+    }
+
+}

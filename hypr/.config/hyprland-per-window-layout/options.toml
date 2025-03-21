@@ -1,0 +1,13 @@
+keyboards = [
+  "lenovo-trackpoint-keyboard-ii",
+  "lenovo-trackpoint-keyboard-ii-2",
+]
+
+[[default_layouts]]
+0 = [
+  "Alacritty",
+]
+1 = [
+  "Vivaldi-stable",
+  "Pidgin",
+]
