@@ -8,6 +8,22 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+my_repositories=(
+  "${HOME}/vinna/isds"
+  "${HOME}/vinna/envdata"
+  "${HOME}/mitt/nixvim"
+  "${HOME}/dotfiles"
+  "/etc/nixos"
+)
+for repo in ${my_repositories[@]} ; do
+  if [ -d "${repo}" ]; then
+    if git -C ${repo} status --porcelain | grep -q .; then
+      echo "Uncommitted changes in: ${repo}"
+    fi
+  fi
+done
+
 export PATH=${PATH}:~/bin
 unalias gm
 eval "$(mcfly init zsh)"
