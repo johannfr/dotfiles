@@ -24,6 +24,15 @@ for repo in ${my_repositories[@]} ; do
   fi
 done
 
+function configupdate() {
+  for repo in ${my_repositories[@]} ; do
+    if $(echo ${repo} | grep -qv "vinna") ; then
+      echo "Pulling ${repo}"
+      git -C ${repo} pull
+    fi
+  done
+}
+
 export PATH=${PATH}:~/bin
 unalias gm
 eval "$(mcfly init zsh)"
