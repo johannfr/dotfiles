@@ -33,10 +33,27 @@ function configupdate() {
   done
 }
 
+up-line-or-local-history() {
+  zle set-local-history 1
+  zle up-line-or-history
+  zle set-local-history 0
+}
+zle -N up-line-or-local-history
+
+down-line-or-local-history() {
+  zle set-local-history 1
+  zle down-line-or-history
+  zle set-local-history 0
+}
+zle -N down-line-or-local-history
+
+bindkey "${key[Up]}" up-line-or-local-history
+bindkey "${key[Down]}" down-line-or-local-history
+
+
 export PATH=${PATH}:~/bin
 unalias gm
 eval "$(mcfly init zsh)"
-#alias vim="hx"
 alias sudo="sudo "
 alias vim="~/mitt/nixvim/result/bin/nvim"
 alias dcli="~/mitt/dcli/result/bin/dcli"
