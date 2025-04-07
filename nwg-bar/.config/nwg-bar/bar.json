@@ -1,0 +1,12 @@
+[
+  {
+    "label": "Reboot",
+    "exec": "systemctl reboot",
+    "icon": "/run/current-system/sw/share/nwg-bar/images/system-reboot.svg"
+  },
+  {
+    "label": "Shutdown",
+    "exec": "systemctl -i poweroff",
+    "icon": "/run/current-system/sw/share/nwg-bar/images/system-shutdown.svg"
+  }
+]
