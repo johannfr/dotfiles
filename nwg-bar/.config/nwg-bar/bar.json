@@ -1,5 +1,10 @@
 [
   {
+    "label": "Log out",
+    "exec": "hyprctl dispatch exit",
+    "icon": "/run/current-system/sw/share/nwg-bar/images/system-log-out.svg"
+  },
+  {
     "label": "Reboot",
     "exec": "systemctl reboot",
     "icon": "/run/current-system/sw/share/nwg-bar/images/system-reboot.svg"
