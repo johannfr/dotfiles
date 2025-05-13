@@ -51,7 +51,7 @@
     "hyprland/workspaces": {
       "persistent-workspaces": {
         "eDP-1": [10, 11],
-        "DP-6": [1, 2],
+        "DP-7": [1, 2],
         "DP-8": [7],
       },
       "format": "{name}: {icon}",
