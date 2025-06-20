@@ -11,6 +11,7 @@ fi
 
 my_repositories=(
   "${HOME}/vinna/isds"
+  "${HOME}/vinna/ice"
   "${HOME}/vinna/envdata"
   "${HOME}/mitt/nixvim"
   "${HOME}/dotfiles"
