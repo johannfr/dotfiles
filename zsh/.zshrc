@@ -56,7 +56,6 @@ export PATH=${PATH}:~/bin
 unalias gm
 eval "$(mcfly init zsh)"
 alias sudo="sudo "
-alias vim="~/mitt/nixvim/result/bin/nvim"
 alias dcli="~/mitt/dcli/result/bin/dcli"
 alias alert='echo -e "\a"'
 alias ice="ssh -Y ice@192.168.122.66"
