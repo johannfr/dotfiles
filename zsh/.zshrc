@@ -59,3 +59,6 @@ alias sudo="sudo "
 alias dcli="~/mitt/dcli/result/bin/dcli"
 alias alert='echo -e "\a"'
 alias ice="ssh -Y ice@192.168.122.66"
+
+# Let's use zsh inside interactive nix-shells.
+any-nix-shell zsh --info-right | source /dev/stdin
