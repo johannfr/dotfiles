@@ -59,6 +59,7 @@ alias sudo="sudo "
 alias dcli="~/mitt/dcli/result/bin/dcli"
 alias alert='echo -e "\a"'
 alias ice="ssh -Y ice@192.168.122.66"
+alias ipython="nix-shell -p python3Packages.ipython --run ipython"
 
 # Let's use zsh inside interactive nix-shells.
 any-nix-shell zsh --info-right | source /dev/stdin
