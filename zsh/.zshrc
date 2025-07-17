@@ -53,7 +53,6 @@ bindkey "${key[Down]}" down-line-or-local-history
 
 
 export PATH=${PATH}:~/bin
-unalias gm
 eval "$(mcfly init zsh)"
 alias sudo="sudo "
 alias dcli="~/mitt/dcli/result/bin/dcli"
