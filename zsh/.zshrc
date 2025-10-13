@@ -53,6 +53,7 @@ bindkey "${key[Down]}" down-line-or-local-history
 
 
 export PATH=${PATH}:~/bin
+export EDITOR=vim
 eval "$(mcfly init zsh)"
 alias sudo="sudo "
 alias dcli="~/mitt/dcli/result/bin/dcli"
@@ -62,3 +63,5 @@ alias ipython="nix-shell -p python3Packages.ipython --run ipython"
 
 # Let's use zsh inside interactive nix-shells.
 any-nix-shell zsh --info-right | source /dev/stdin
+
+eval "$(direnv hook zsh)"
