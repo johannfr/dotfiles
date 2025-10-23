@@ -76,7 +76,25 @@ return {
   ),
   --------------------------------------
   s("cout",
-    fmta("std::cout <<<< \"<>: \" <<<< <> <<<< '\\n';",
+    fmta("std::cout <<<< \"<>: \" <<<< <> <<<< '\\n'; // FIXME remove\n",
+      {
+        rep(1),
+        i(1, "Variable")
+      }
+    )
+  ),
+ --------------------------------------
+  s("info",
+    fmta("TraceInfo(\"<>\"); // FIXME remove<>\n",
+      {
+        i(1, "Message"),
+        i(0)
+      }
+    )
+  ),
+ --------------------------------------
+  s("infovar",
+    fmta("TraceInfo(\"<>: \", <>); // FIXME remove\n",
       {
         rep(1),
         i(1, "Variable")
