@@ -94,7 +94,7 @@ return {
   ),
  --------------------------------------
   s("infovar",
-    fmta("TraceInfo(\"<>: \", <>); // FIXME remove\n",
+    fmta("TraceInfo(\"<>: \" <<<< <>); // FIXME remove\n",
       {
         rep(1),
         i(1, "Variable")
