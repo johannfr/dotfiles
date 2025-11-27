@@ -8,7 +8,7 @@ size = 10.0
 family = "FiraCode Nerd Font"
 style = "Regular"
 
-[general]
-import = [
-    "~/.config/alacritty/themes/gruvbox_material_medium_dark.toml"
-]
+# [general]
+# import = [
+#     "~/.config/alacritty/themes/gruvbox_material_medium_dark.toml"
+# ]
