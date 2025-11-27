@@ -1,3 +1,9 @@
+snippet taskheaderlineice
+  | ${1:01} `strftime("%Y-%m-%d")` Tern Systems/Johann Fridriksson
+  |  ${1/./ /g}Task: ${2}
+  |  ${1/./ /g}${3:Task description}
+  |
+
 snippet taskheaderline
   | ${1:001}   `strftime("%Y-%m-%d")`  Tern Systems/Johann Fridriksson
   |       Task: ${2}
