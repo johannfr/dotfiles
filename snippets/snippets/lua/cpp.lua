@@ -52,6 +52,46 @@ local process_doxygen_returns = function(params_string, parent)
   return ls.snippet(parent, new_nodes)
 end
 
+local function get_next_th_number(default_val)
+  local row = vim.api.nvim_win_get_cursor(0)[1]
+
+  -- NOTE! Remember to increment the row-offsets if you change the snippet using this function.
+  local lines = vim.api.nvim_buf_get_lines(0, row + 3, row + 4, false)
+  
+  if lines and lines[1] then
+    local id_str = string.match(lines[1], "|%s*(%d+)")
+    
+    if id_str then
+      local width = math.max(#id_str, 2)
+      local num = tonumber(id_str)
+      local next_num = num + 1
+      local fmt = "%0" .. width .. "d"
+      
+      default_val = string.format(fmt, next_num)
+    end
+  end
+
+  return sn(nil, {
+      i(1, default_val)
+  })
+end
+
+local function get_english_date(args)
+  local months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+  local day = os.date("%d")
+  local month = months[tonumber(os.date("%m"))]
+  local year = os.date("%Y")
+
+  return day .. "-" .. month .. "-" .. year
+end
+
+local function get_padding(args)
+    -- args[1] is the text from the watched node.
+    -- args[1][1] is the first line of that text.
+    local id_text = args[1][1]
+    
+    return string.rep(" ", #id_text)
+end
 
 return {
   s("class",
@@ -71,6 +111,44 @@ return {
         i(2),
         rep(1),
         i(0),
+      }
+    )
+  ),
+  --------------------------------------
+  s("taskheaderlineisds",
+    fmta(
+      [[
+      | <>    <>  Tern Systems/Johann Fridriksson
+      | <>    Task: <>
+      | <>    <>
+      |
+      ]],
+      {
+        d(1, function() return get_next_th_number("001") end),
+        f(function() return os.date("%Y-%m-%d") end),
+        f(get_padding, {1}),
+        i(2, "TaskNumber"),
+        f(get_padding, {1}),
+        i(3, "Description"),
+      }
+    )
+  ),
+  --------------------------------------
+  s("taskheaderlineice",
+    fmta(
+      [[
+      | <>  <> Tern Systems/Johann Fridriksson
+      | <>    Task: <>
+      | <>    <>
+      |
+      ]],
+      {
+        d(1, function() return get_next_th_number("01") end),
+        f(get_english_date, {}),
+        f(get_padding, {1}),
+        i(2, "TaskNumber"),
+        f(get_padding, {1}),
+        i(3, "Description"),
       }
     )
   ),
@@ -128,5 +206,25 @@ return {
     }
     )
   ),
+  --------------------------------------
+  s("includeguard",
+  fmta(
+    [[
+    #ifndef _<>_H
+    #define _<>_H
+    <><>
+    #endif // _<>_H
+    ]],
+    {
+    f(function() return vim.fn.expand("%:t:r"):upper() end),
+    f(function() return vim.fn.expand("%:t:r"):upper() end),
+    f(function(_, snip)
+     return snip.env.TM_SELECTED_TEXT or {}
+    end),
+    i(0),
+    f(function() return vim.fn.expand("%:t:r"):upper() end),
+    }
+  )
+    ),
 }
 
