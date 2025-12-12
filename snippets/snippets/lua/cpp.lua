@@ -93,6 +93,11 @@ local function get_padding(args)
     return string.rep(" ", #id_text)
 end
 
+local function get_class_name(args, parent, old_state)
+  local class_name = vim.fn.expand("%:t:r"):sub(1, 1):upper() .. vim.fn.expand("%:t:r"):sub(2)
+  return sn(nil, i(1, class_name))
+end
+
 return {
   s("class",
     fmta(
@@ -100,13 +105,13 @@ return {
       class <> {
       public:
         <>(<>);
-        virtual ~<>();
+        ~<>();
         <>
       private:
       };
       ]],
       {
-        i(1, string.upper(vim.fn.expand("%:t:r"):sub(1, 1)) .. vim.fn.expand("%:t:r"):sub(2)),
+        d(1, get_class_name),
         rep(1),
         i(2),
         rep(1),
