@@ -49,17 +49,17 @@
     },
 
     "hyprland/workspaces": {
+      "sort": "id",
       "persistent-workspaces": {
-        "eDP-1": [10, 11],
-        "DP-7": [1, 2],
-        "DP-8": [7],
+        "eDP-1": ["C", "T", "S"],
       },
       "format": "{name}: {icon}",
       "format-icons": {
         "1": "",
         "2": "",
-        "10": "",
-        "11": "",
+        "C": "",
+        "T": "",
+        "S": "",
         "active": "",
         "default": ""
       },
