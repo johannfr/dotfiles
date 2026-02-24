@@ -51,15 +51,15 @@
     "hyprland/workspaces": {
       "sort": "id",
       "persistent-workspaces": {
-        "eDP-1": ["C", "T", "S"],
+        "eDP-1": ["I", "O", "P"],
       },
       "format": "{name}: {icon}",
       "format-icons": {
         "1": "",
         "2": "",
-        "C": "",
-        "T": "",
-        "S": "",
+        "I": "",
+        "O": "",
+        "P": "",
         "active": "",
         "default": ""
       },
