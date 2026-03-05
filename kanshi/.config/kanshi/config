@@ -31,3 +31,25 @@ profile johann-p1-standalone {
     scale 2
   }
 }
+
+profile jof-t16-heimaskjar {
+  output "Dell Inc. DELL U2715H GH85D59S03KL" {
+    position -320,-1440
+    scale 1
+  }
+  output "California Institute of Technology 0x1630 *" {
+    position 0,0
+    scale 1
+  }
+}
+
+profile jof-t16-standalone {
+  output "California Institute of Technology 0x1630 *" {
+    position 0,0
+    scale 1
+  }
+}
+
+
+
+
