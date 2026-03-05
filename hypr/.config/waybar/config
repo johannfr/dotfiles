@@ -66,14 +66,14 @@
     },
 
     "backlight": {
-      "format": "{icon}  {percent}%",
+      "format": "{icon} {percent}%",
       "format-icons": [
         "󰛩","󱩎","󱩏","󱩐","󱩐","󱩑","󱩒","󱩓","󱩔","󱩕","󱩖","󰛨",
         ],
     },
 
     "wireplumber": {
-      "format": "   {volume}%",
+      "format": "  {volume}%",
       "on-click": "pavucontrol",
     },
 
@@ -84,7 +84,7 @@
             "critical": 15
         },
         // Connected to AC
-        "format": "   {capacity}%", // Icon: bolt
+        "format": " {capacity}%", // Icon: bolt
         // Not connected to AC
         "format-discharging": "{icon}   {capacity}%",
         "format-icons": [
@@ -106,7 +106,7 @@
 
     "tray": {
         "icon-size": 16,
-        "spacing": 2,
+        "spacing": 1,
     }
 
 }
