@@ -1,0 +1,33 @@
+profile tern {
+  output eDP-1 {
+    position 1200,400
+    scale 2
+  }
+  output "Dell Inc. DELL S3221QSA 8MY09R3" {
+    position -3840,0
+    scale 1
+  }
+  output "Dell Inc. DELL U2421E G1MC5H3" {
+    position 0,0
+    scale 1
+    transform 270
+  }
+}
+
+profile heimaskjar {
+  output "Dell Inc. DELL U2715H GH85D59S03KL" {
+    position -320,-1440
+    scale 1
+  }
+  output eDP-1 {
+    position 0,0
+    scale 2
+  }
+}
+
+profile standalone {
+  output eDP-1 {
+    position 0,0
+    scale 2
+  }
+}
