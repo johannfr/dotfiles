@@ -1,5 +1,5 @@
-profile tern {
-  output eDP-1 {
+profile johann-p1-tern {
+  output "Samsung Display Corp. 0x4165 *" {
     position 1200,400
     scale 2
   }
@@ -14,19 +14,19 @@ profile tern {
   }
 }
 
-profile heimaskjar {
+profile johann-p1-heimaskjar {
   output "Dell Inc. DELL U2715H GH85D59S03KL" {
     position -320,-1440
     scale 1
   }
-  output eDP-1 {
+  output "Samsung Display Corp. 0x4165 *" {
     position 0,0
     scale 2
   }
 }
 
-profile standalone {
-  output eDP-1 {
+profile johann-p1-standalone {
+  output "Samsung Display Corp. 0x4165 *" {
     position 0,0
     scale 2
   }
