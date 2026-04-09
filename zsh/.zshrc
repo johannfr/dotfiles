@@ -1,27 +1,6 @@
-my_repositories=(
-  "${HOME}/vinna/isds"
-  "${HOME}/vinna/ice"
-  "${HOME}/vinna/envdata"
-  "${HOME}/mitt/nixvim"
-  "${HOME}/dotfiles"
-  "/etc/nixos"
-)
-for repo in ${my_repositories[@]} ; do
-  if [ -d "${repo}" ]; then
-    if git -C ${repo} status --porcelain | grep -q .; then
-      echo "Uncommitted changes in: ${repo}"
-    fi
-  fi
-done
 
-function configupdate() {
-  for repo in ${my_repositories[@]} ; do
-    if $(echo ${repo} | grep -qv "vinna") ; then
-      echo "Pulling ${repo}"
-      git -C ${repo} pull
-    fi
-  done
-}
+cat -Pp /tmp/gitrepos.log 2>/dev/null
+$HOME/bin/checkforupdates.sh &!
 
 export PATH=${PATH}:~/bin
 alias dcli="~/mitt/dcli/result/bin/dcli"
