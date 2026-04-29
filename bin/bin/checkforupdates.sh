@@ -3,6 +3,7 @@
 DEBUG=0
 [[ "$1" == "--debug" ]] && DEBUG=1
 
+
 # Public repos: checked against remote over HTTPS (no auth required)
 PUBLIC_REPOS=(
     "$HOME/dotfiles"
@@ -47,7 +48,7 @@ check_remote_status() {
     local repo_path="$1"
 
     if [ ! -d "$repo_path/.git" ]; then
-        [ "$DEBUG" -eq 1 ] && echo "Skipping $repo_path: Not a git repository."
+        [ "$DEBUG" -eq 1 ] && echo "Skipping $repo_path: Not a git repository." >&2
         return
     fi
 
@@ -84,7 +85,7 @@ check_local_status() {
     local repo_path="$1"
 
     if [ ! -d "$repo_path/.git" ]; then
-        [ "$DEBUG" -eq 1 ] && echo "Skipping $repo_path: Not a git repository."
+        [ "$DEBUG" -eq 1 ] && echo "Skipping $repo_path: Not a git repository." >&2
         return
     fi
 
@@ -96,23 +97,9 @@ check_local_status() {
     check_local_workdir "$repo_path" "$branch"
 }
 
-LOG_FILE="/tmp/gitrepos.log"
-[ "$DEBUG" -eq 1 ] && LOG_FILE="/dev/stdout"
-
-needs_refresh() {
-    [ "$DEBUG" -eq 1 ] && return 0
-    [ ! -f "$LOG_FILE" ] && return 0
-    [ $(( $(date +%s) - $(date -r "$LOG_FILE" +%s) )) -gt 300 ] && return 0
-    return 1
-}
-
-if needs_refresh; then
-    {
-        for repo in "${PUBLIC_REPOS[@]}"; do
-            check_remote_status "$repo"
-        done
-        for repo in "${LOCAL_ONLY_REPOS[@]}"; do
-            check_local_status "$repo"
-        done
-    } > "$LOG_FILE"
-fi
+for repo in "${PUBLIC_REPOS[@]}"; do
+    check_remote_status "$repo"
+done
+for repo in "${LOCAL_ONLY_REPOS[@]}"; do
+    check_local_status "$repo"
+done

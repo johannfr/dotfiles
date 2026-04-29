@@ -1,6 +1,8 @@
 
 cat -Pp /tmp/gitrepos.log 2>/dev/null
-$HOME/bin/checkforupdates.sh &!
+if [[ ! -f /tmp/gitrepos.log || $(( $(date +%s) - $(date -r /tmp/gitrepos.log +%s) )) -gt 300 ]]; then
+    $HOME/bin/checkforupdates.sh > /tmp/gitrepos.log 2>/dev/null &!
+fi
 
 export PATH=${PATH}:~/bin
 alias dcli="~/mitt/dcli/result/bin/dcli"
