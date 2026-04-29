@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-firefox 'moz-extension://67f5a6ad-c471-408d-bd2b-20e2c823a435/ssb.html?url=https=-=3A=-=2F=-=2Fmessenger.com&name=Messenger&incognito=false'
+# firefox 'moz-extension://67f5a6ad-c471-408d-bd2b-20e2c823a435/ssb.html?url=https=-=3A=-=2F=-=2Fmessenger.com&name=Messenger&incognito=false'
+google-chrome-stable --app="https://www.messenger.com"
