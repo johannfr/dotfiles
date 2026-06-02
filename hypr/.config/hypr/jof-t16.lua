@@ -1,0 +1,6 @@
+local home = os.getenv("HOME")
+require("common")
+hl.on("hyprland.start", function()
+	hl.exec_cmd("Telegram")
+	hl.exec_cmd("signal-desktop")
+end)

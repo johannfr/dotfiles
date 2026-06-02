@@ -1,0 +1,8 @@
+local home = os.getenv("HOME")
+require("common")
+hl.on("hyprland.start", function()
+	hl.exec_cmd(home .. "/bin/zup.sh")
+	hl.exec_cmd("google-chat-linux")
+	hl.exec_cmd(home .. "/bin/mail.sh")
+	hl.exec_cmd("spotify")
+end)
