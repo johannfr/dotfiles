@@ -258,65 +258,142 @@ local shiftMainMod = "SHIFT + " .. mainMod
 local ctrlAlt = "CTRL + ALT"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(ctrlAlt .. " + A", hl.dsp.exec_cmd(terminal))
-hl.bind(ctrlAlt .. " + C", hl.dsp.exec_cmd(home .. "/bin/teamscode.sh"))
-hl.bind(ctrlAlt .. " + E", hl.dsp.exec_cmd("rofimoji"))
-hl.bind(ctrlAlt .. " + I", hl.dsp.exec_cmd("hyprctl switchxkblayout all next"))
-hl.bind(ctrlAlt .. " + L", hl.dsp.exec_cmd(home .. "/bin/lock.sh"))
-hl.bind(ctrlAlt .. " + M", hl.dsp.exec_cmd("firefox"))
-hl.bind(ctrlAlt .. " + O", hl.dsp.exec_cmd("gradia --screenshot"))
-hl.bind(ctrlAlt .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(ctrlAlt .. " + A", hl.dsp.exec_cmd(terminal), { description = "Open terminal" })
+hl.bind(
+	ctrlAlt .. " + C",
+	hl.dsp.exec_cmd(home .. "/bin/teamscode.sh"),
+	{ description = "Run login-code-snatcher for Teams" }
+)
+hl.bind(ctrlAlt .. " + E", hl.dsp.exec_cmd("rofimoji"), { description = "Open emoji picker" })
+hl.bind(
+	ctrlAlt .. " + I",
+	hl.dsp.exec_cmd("hyprctl switchxkblayout all next"),
+	{ description = "Switch keyboard layout" }
+)
+hl.bind(ctrlAlt .. " + L", hl.dsp.exec_cmd(home .. "/bin/lock.sh"), { description = "Lock screen" })
+hl.bind(ctrlAlt .. " + M", hl.dsp.exec_cmd("firefox"), { description = "Open Firefox" })
+hl.bind(ctrlAlt .. " + O", hl.dsp.exec_cmd("gradia --screenshot"), { description = "Take screenshot" })
+hl.bind(ctrlAlt .. " + R", hl.dsp.exec_cmd(menu), { description = "Open application launcher" })
 
-hl.bind(ctrlMainMod .. " + Q", hl.dsp.exec_cmd("nwg-bar"))
+hl.bind(ctrlMainMod .. " + Q", hl.dsp.exec_cmd("nwg-bar"), { description = "Open session menu" })
 
-hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + C", hl.dsp.window.close(), { description = "Close window" })
 
 hl.bind(
 	ctrlMainMod .. " + SHIFT + Q",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"),
+	{ description = "Exit Hyprland" }
 )
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }), { description = "Toggle floating" })
 
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"), { description = "Toggle split direction" }) -- dwindle only
 
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }), { description = "Move focus left" })
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }), { description = "Move focus right" })
+hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }), { description = "Move focus up" })
+hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }), { description = "Move focus down" })
 
-hl.bind(shiftMainMod .. " + left", hl.dsp.window.move({ direction = "left" }))
-hl.bind(shiftMainMod .. " + right", hl.dsp.window.move({ direction = "right" }))
-hl.bind(shiftMainMod .. " + up", hl.dsp.window.move({ direction = "up" }))
-hl.bind(shiftMainMod .. " + down", hl.dsp.window.move({ direction = "down" }))
+hl.bind(shiftMainMod .. " + left", hl.dsp.window.move({ direction = "left" }), { description = "Move window left" })
+hl.bind(shiftMainMod .. " + right", hl.dsp.window.move({ direction = "right" }), { description = "Move window right" })
+hl.bind(shiftMainMod .. " + up", hl.dsp.window.move({ direction = "up" }), { description = "Move window up" })
+hl.bind(shiftMainMod .. " + down", hl.dsp.window.move({ direction = "down" }), { description = "Move window down" })
 
-hl.bind(ctrlMainMod .. " + left", hl.dsp.window.resize({ x = -50, y = 0, relative = true }))
-hl.bind(ctrlMainMod .. " + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }))
-hl.bind(ctrlMainMod .. " + up", hl.dsp.window.resize({ x = 0, y = -50, relative = true }))
-hl.bind(ctrlMainMod .. " + down", hl.dsp.window.resize({ x = 0, y = 50, relative = true }))
+hl.bind(
+	ctrlMainMod .. " + left",
+	hl.dsp.window.resize({ x = -50, y = 0, relative = true }),
+	{ description = "Shrink window width" }
+)
+hl.bind(
+	ctrlMainMod .. " + right",
+	hl.dsp.window.resize({ x = 50, y = 0, relative = true }),
+	{ description = "Grow window width" }
+)
+hl.bind(
+	ctrlMainMod .. " + up",
+	hl.dsp.window.resize({ x = 0, y = -50, relative = true }),
+	{ description = "Shrink window height" }
+)
+hl.bind(
+	ctrlMainMod .. " + down",
+	hl.dsp.window.resize({ x = 0, y = 50, relative = true }),
+	{ description = "Grow window height" }
+)
 
-hl.bind(ctrlAlt .. " + right", hl.dsp.focus({ workspace = "+1", on_current_monitor = true }))
-hl.bind(ctrlAlt .. " + left", hl.dsp.focus({ workspace = "-1", on_current_monitor = true }))
+hl.bind(
+	ctrlAlt .. " + right",
+	hl.dsp.focus({ workspace = "+1", on_current_monitor = true }),
+	{ description = "Next workspace on current monitor" }
+)
+hl.bind(
+	ctrlAlt .. " + left",
+	hl.dsp.focus({ workspace = "-1", on_current_monitor = true }),
+	{ description = "Previous workspace on current monitor" }
+)
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(
+		mainMod .. " + " .. key,
+		hl.dsp.focus({ workspace = i, on_current_monitor = true }),
+		{ description = "Switch to workspace " .. i }
+	)
+	hl.bind(
+		mainMod .. " + SHIFT + " .. key,
+		hl.dsp.window.move({ workspace = i, follow = false }),
+		{ description = "Move window to workspace " .. i }
+	)
 end
 
 -- Named workspaces I, O, P
-hl.bind(mainMod .. " + I", hl.dsp.focus({ workspace = "name:I", on_current_monitor = true }))
-hl.bind(mainMod .. " + O", hl.dsp.focus({ workspace = "name:O", on_current_monitor = true }))
-hl.bind(mainMod .. " + P", hl.dsp.focus({ workspace = "name:P", on_current_monitor = true }))
-hl.bind(mainMod .. " + SHIFT + I", hl.dsp.window.move({ workspace = "name:I", silent = true }))
-hl.bind(mainMod .. " + SHIFT + O", hl.dsp.window.move({ workspace = "name:O", silent = true }))
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.move({ workspace = "name:P", silent = true }))
+hl.bind(
+	mainMod .. " + I",
+	hl.dsp.focus({ workspace = "name:I", on_current_monitor = true }),
+	{ description = "Switch to workspace I (chat)" }
+)
+hl.bind(
+	mainMod .. " + O",
+	hl.dsp.focus({ workspace = "name:O", on_current_monitor = true }),
+	{ description = "Switch to workspace O (email)" }
+)
+hl.bind(
+	mainMod .. " + P",
+	hl.dsp.focus({ workspace = "name:P", on_current_monitor = true }),
+	{ description = "Switch to workspace P (music)" }
+)
+hl.bind(
+	mainMod .. " + SHIFT + I",
+	hl.dsp.window.move({ workspace = "name:I", follow = false }),
+	{ description = "Move window to workspace I (chat)" }
+)
+hl.bind(
+	mainMod .. " + SHIFT + O",
+	hl.dsp.window.move({ workspace = "name:O", follow = false }),
+	{ description = "Move window to workspace O (email)" }
+)
+hl.bind(
+	mainMod .. " + SHIFT + P",
+	hl.dsp.window.move({ workspace = "name:P", follow = false }),
+	{ description = "Move window to workspace P (music)" }
+)
 
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- Scratchpad workspace
+hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"), { description = "Toggle scratchpad" })
+hl.bind(
+	mainMod .. " + SHIFT + S",
+	hl.dsp.window.move({ workspace = "special:magic" }),
+	{ description = "Move window to scratchpad" }
+)
+
+-- Key-bindings workspace and other utils
+hl.bind(mainMod .. " + K", hl.dsp.workspace.toggle_special("keybinds"), { description = "Toggle keybindings viewer" })
+hl.bind(
+	mainMod .. " + SHIFT + K",
+	hl.dsp.window.move({ workspace = "special:keybinds" }),
+	{ description = "Move window to keybindings workspace" }
+)
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -330,31 +407,39 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(
 	"XF86AudioRaiseVolume",
 	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-	{ locked = true, repeating = true }
+	{ locked = true, repeating = true, description = "Raise volume" }
 )
 hl.bind(
 	"XF86AudioLowerVolume",
 	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-	{ locked = true, repeating = true }
+	{ locked = true, repeating = true, description = "Lower volume" }
 )
 hl.bind(
 	"XF86AudioMute",
 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-	{ locked = true, repeating = true }
+	{ locked = true, repeating = true, description = "Mute/unmute audio" }
 )
 hl.bind(
 	"XF86AudioMicMute",
 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-	{ locked = true, repeating = true }
+	{ locked = true, repeating = true, description = "Mute/unmute microphone" }
 )
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+hl.bind(
+	"XF86MonBrightnessUp",
+	hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),
+	{ locked = true, repeating = true, description = "Increase screen brightness" }
+)
+hl.bind(
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),
+	{ locked = true, repeating = true, description = "Decrease screen brightness" }
+)
 
 -- Requires playerctl
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, description = "Next media track" })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, description = "Pause/play media" })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, description = "Pause/play media" })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true, description = "Previous media track" })
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -432,4 +517,11 @@ hl.window_rule({
 
 	move = "20 monitor_h-120",
 	float = true,
+})
+
+-- Keybindings viewer: auto-assign to special:keybinds
+hl.window_rule({
+	name = "keybinds-to-special",
+	match = { title = "^Hyprland Keybindings$" },
+	workspace = "special:keybinds silent",
 })
